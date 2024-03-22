@@ -33,6 +33,5 @@ const nthElement = (arr: number[], num?: number): number[] => {
         }
     }
 
-    console.log(nthArr);
     return nthArr;
 }
