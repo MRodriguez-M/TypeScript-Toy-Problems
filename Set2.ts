@@ -14,6 +14,24 @@ const daysToNewYear = (date: Date | string): number => {
     let timeDifference: number = newYear.getTime() - inputDate.getTime();
     daysLeft = timeDifference / (1000 * 3600 * 24);
 
-    console.log(daysLeft)
     return daysLeft;
+}
+
+
+// Change the position of the first and last characters in the given string.
+const lastToFirst = (str: string): string => {
+    let flipStr: string = '';
+
+    if(str.length <= 1) {
+        flipStr = str;
+    }
+    else if(str.length === 2) {
+        flipStr = str.charAt(1).concat(str.charAt(0));
+    }
+    else {
+        let middleStr: string = str.substring(1, str.length-1);
+        flipStr = str.charAt(str.length-1).concat(middleStr, str.charAt(0));
+    }
+
+    return flipStr;
 }
