@@ -2,14 +2,18 @@
 const daysToNewYear = (date: Date | string): number => {
     let daysLeft: number = 0;
     const currentDate: Date = new Date();
+    const newYear: Date = new Date(currentDate.getFullYear()+1, 0, 1);
+
+    if(typeof date === 'string') {
+        let dateArr: string[] = date.split('.');
+        let validDate: string = dateArr[1].concat('-', dateArr[0], '-', dateArr[2]);
+        date = validDate;
+    }
+
     const inputDate: Date = new Date(date);
-    let newYear: Date = new Date(currentDate.getFullYear()+1, 0, 1);
-    
     let timeDifference: number = newYear.getTime() - inputDate.getTime();
     daysLeft = timeDifference / (1000 * 3600 * 24);
 
-    console.log(currentDate)
+    console.log(daysLeft)
     return daysLeft;
 }
-
-daysToNewYear(new Date(2024, 2, 21));
